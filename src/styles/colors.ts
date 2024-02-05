@@ -1,9 +1,11 @@
 import {
   gray,
+  slate,
   blue,
   red,
   green,
   grayDark,
+  slateDark,
   blueDark,
   redDark,
   greenDark,
@@ -17,6 +19,7 @@ export const colors = {
   light: {
     ...indigo,
     ...gray,
+    ...slate,
     ...blue,
     ...red,
     ...green,
@@ -24,6 +27,7 @@ export const colors = {
   dark: {
     ...indigoDark,
     ...grayDark,
+    ...slateDark,
     ...blueDark,
     ...redDark,
     ...greenDark,
