@@ -1,7 +1,7 @@
 const CONFIG = {
   // profile setting (required)
   profile: {
-    name: "안로그",
+    name: "ahn-log",
     image: "/avatar.webp", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Frontend Developer",
     bio: "플러터로 뚝딱뚝딱",
@@ -16,7 +16,7 @@ const CONFIG = {
   ],
   // blog setting (required)
   blog: {
-    title: "ahn-log",
+    title: "안로그",
     description: "ahnlog",
   },
 
