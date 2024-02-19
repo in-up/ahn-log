@@ -6,10 +6,9 @@ import { zIndexes } from "src/styles/zIndexes"
 
 type Props = {
   fullWidth?: boolean
-  readingProgress: number
 }
 
-const Header: React.FC<Props> = ({ fullWidth, readingProgress }) => {
+const Header: React.FC<Props> = ({ fullWidth }) => {
   return (
     <StyledWrapper>
       <HeaderWrapper>
