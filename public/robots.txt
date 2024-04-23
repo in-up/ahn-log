@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ahn-log.vercel.app
+Host: https://ahn.vercel.app
 
 # Sitemaps
-Sitemap: https://ahn-log.vercel.app/sitemap.xml
+Sitemap: https://ahn.vercel.app/sitemap.xml

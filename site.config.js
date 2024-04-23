@@ -1,20 +1,20 @@
 const CONFIG = {
   // profile setting (required)
   profile: {
-    name: "ahn-log",
+    name: "ahn",
     image: "/avatar.webp", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     logo: "/logo.webp",
-    role: "Frontend Developer",
+    role: "CS Student",
     bio: "플러터로 뚝딱뚝딱",
-    email: "ahn.log@gmail.com",
+    email: "ahn--log@gmail.com",
     linkedin: "",
     github: "in-up",
     instagram: "",
   },
   projects: [
     {
-      name: `쿠버스`,
-      href: "https://github.com/in-up/app-kubus",
+      name: `영화달`,
+      href: "https://github.com/in-up/moonflix-frontend",
     },
   ],
   // blog setting (required)
@@ -24,7 +24,7 @@ const CONFIG = {
   },
 
   // CONFIG configration (required)
-  link: "https://ahn-log.vercel.app",
+  link: "https://ahn.vercel.app",
   since: 2024, // If leave this empty, current year will be used.
   lang: "ko-KR", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
