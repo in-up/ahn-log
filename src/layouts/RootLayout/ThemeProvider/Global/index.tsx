@@ -13,7 +13,7 @@ export const Global = () => {
           margin: 0;
           padding: 0;
           color: ${theme.colors.slate12};
-          background-color: ${theme.colors.slate2};
+          background-color: ${theme.colors.bg};
           font-family: ${pretendard.style.fontFamily};
           font-weight: ${pretendard.style.fontWeight};
           font-style: ${pretendard.style.fontStyle};

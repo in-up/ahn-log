@@ -9,7 +9,7 @@ const ServiceCard: React.FC = () => {
   return (
     <>
       <StyledTitle>
-        <Emoji>🌟</Emoji> Service
+      <i className="ri-git-repository-fill"></i> Service
       </StyledTitle>
       <StyledWrapper>
         {CONFIG.projects.map((project, idx) => (
