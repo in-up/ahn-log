@@ -1,13 +1,13 @@
 const CONFIG = {
   // profile setting (required)
   profile: {
-    name: "ahn",
-    image: "/avatar.webp", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
+    name: "ahnlog",
+    image: "/avatar.png", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     logo: "/logo.webp",
-    role: "CS Student",
+    role: "@ in-up",
     bio: "플러터로 뚝딱뚝딱",
     email: "ahn--log@gmail.com",
-    linkedin: "",
+    linkedin: "irr",
     github: "in-up",
     instagram: "",
   },

@@ -43,7 +43,7 @@ export const colors = {
     ...greenDark,
     ...whiteA,
     ...blackA,
-    bg: "#070707",
+    bg: "#212121",
     elem: "#1a1a1f"
   },
 }

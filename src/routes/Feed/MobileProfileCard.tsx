@@ -10,16 +10,18 @@ type Props = {
 const MobileProfileCard: React.FC<Props> = () => {
   return (
     <StyledWrapper>
-      <div className="top">💻 Profile</div>
+      {/* <div className="top">💻 Profile</div> */}
       <div className="mid">
         <div className="wrapper">
-          <Image
-            src={CONFIG.profile.image}
-            width={90}
-            height={90}
-            css={{ position: "relative" }}
-            alt="profile_image"
-          />
+        <StyledImageContainer>
+            <Image
+              src={CONFIG.profile.image}
+              width={90}
+              height={90}
+              css={{ position: "relative" }}
+              alt="profile_image"
+            />
+          </StyledImageContainer>
           <div className="wrapper">
             <div className="top">{CONFIG.profile.name}</div>
             <div className="mid">{CONFIG.profile.role}</div>
@@ -49,7 +51,7 @@ const StyledWrapper = styled.div`
     margin-bottom: 1rem;
     border-radius: 1rem;
     background-color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : theme.colors.slate4};
+      theme.scheme === "light" ? "white" : theme.colors.gray4};
     > .wrapper {
       display: flex;
       gap: 0.5rem;
@@ -66,7 +68,7 @@ const StyledWrapper = styled.div`
           margin-bottom: 0.5rem;
           font-size: 0.875rem;
           line-height: 1.25rem;
-          color: ${({ theme }) => theme.colors.slate11};
+          color: ${({ theme }) => theme.colors.gray11};
         }
         > .btm {
           font-size: 0.875rem;
@@ -75,4 +77,11 @@ const StyledWrapper = styled.div`
       }
     }
   }
+`
+
+const StyledImageContainer = styled.div`
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
 `

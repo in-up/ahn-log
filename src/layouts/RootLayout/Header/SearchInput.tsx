@@ -1,49 +1,56 @@
-import styled from "@emotion/styled"
-import React, { InputHTMLAttributes, ReactNode } from "react"
-import { Emoji } from "src/components/Emoji"
+import React, { InputHTMLAttributes, ReactNode, useState } from "react";
+import styled from "@emotion/styled";
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {}
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  onToggleVisibility: () => void; // 부모 컴포넌트로부터 받을 함수
+}
 
-const SearchInput: React.FC<Props> = ({ ...props }) => {
+const SearchInput: React.FC<Props> = ({ onToggleVisibility, ...props }) => {
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    setVisible((prevVisible) => !prevVisible);
+    onToggleVisibility(); // visible 상태 변경 시 부모 컴포넌트의 함수 호출
+  };
+
   return (
     <StyledWrapper>
       <input
-        className="mid"
+        className={`mid ${visible ? "visible" : ""}`}
         type="text"
         placeholder="제목, 태그, 시리즈 검색"
         {...props}
       />
+      <button className="searchButton" onClick={toggleVisibility}>
+        <i className="ri-search-line"></i>
+      </button>
     </StyledWrapper>
-  )
-}
+  );
+};
 
-export default SearchInput
+export default SearchInput;
 
 const StyledWrapper = styled.div`
   margin-left: 3rem;
+  position: relative;
 
-  @media (min-width: 768px) {
-    // margin-bottom: 2rem;
+  .mid {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
   }
-  @media (max-width: 768px) {
-    display:none;
+
+  .mid.visible {
+    opacity: 1;
   }
-  > .top {
-    padding: 0.25rem;
-    margin-bottom: 0.75rem;
+
+  .searchButton {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
   }
-  > .mid {
-    border: 1px solid #7575751a;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    border-radius: 0.5rem;
-    outline-style: none;
-    width: 100%;
-    background-color: ${({ theme }) => theme.colors.bg};
-    ::placeholder {
-      color: ${({ theme }) => theme.colors.gray8}; /* placeholder 텍스트 색상 */
-    }
-  }
-`
+`;

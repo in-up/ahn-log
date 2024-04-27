@@ -29,7 +29,7 @@ const StyledWrapper = styled.div`
     li {
       display: block;
       margin-left: 1rem;
-      color: ${({ theme }) => theme.colors.slate11};
+      color: ${({ theme }) => theme.colors.gray11};
     }
   }
 `

@@ -9,12 +9,14 @@ type Props = {}
 const ProfileCard: React.FC<Props> = () => {
   return (
     <StyledWrapper>
-      <div className="title">
+      {/* <div className="title">
        프로필
-      </div>
+      </div> */}
       <div className="content">
         <div className="top">
-          <Image src={CONFIG.profile.image} fill alt="" />
+          <StyledImageContainer>
+          <Image src={CONFIG.profile.image} width={100} height={100} alt="profile_image" />
+          </StyledImageContainer>
         </div>
         <div className="mid">
           <div className=" name">{CONFIG.profile.name}</div>
@@ -29,6 +31,7 @@ const ProfileCard: React.FC<Props> = () => {
 export default ProfileCard
 
 const StyledWrapper = styled.div`
+
   > .title {
     padding: 0.25rem;
     margin-bottom: 0.75rem;
@@ -37,8 +40,8 @@ const StyledWrapper = styled.div`
     margin-bottom: 2.25rem;
     border-radius: 1rem;
     width: 100%;
-    background-color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : theme.colors.gray4};
+    /* background-color: ${({ theme }) =>
+      theme.scheme === "light" ? "white" : theme.colors.bg}; */
     @media (min-width: 768px) {
       padding: 1rem;
     }
@@ -46,10 +49,11 @@ const StyledWrapper = styled.div`
       padding: 1rem;
     }
     .top {
+      display: flex;
+      justify-content: center;
       position: relative;
       width: 100%;
       &:after {
-        content: "";
         display: block;
         padding-bottom: 100%;
       }
@@ -66,6 +70,9 @@ const StyledWrapper = styled.div`
         font-weight: 700;
       }
       .role {
+        background-color: ${({ theme }) => theme.colors.gray4};
+        padding: 0.15rem 0.6rem;
+        border-radius: 1rem;
         margin-bottom: 1rem;
         font-size: 0.875rem;
         line-height: 1.25rem;
@@ -73,9 +80,16 @@ const StyledWrapper = styled.div`
       }
       .bio {
         margin-bottom: 0.5rem;
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         line-height: 1.25rem;
       }
     }
   }
+`
+
+const StyledImageContainer = styled.div`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
 `

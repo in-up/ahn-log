@@ -12,7 +12,7 @@ export const Global = () => {
         body {
           margin: 0;
           padding: 0;
-          color: ${theme.colors.slate12};
+          color: ${theme.colors.gray12};
           background-color: ${theme.colors.bg};
           font-family: ${pretendard.style.fontFamily};
           font-weight: ${pretendard.style.fontWeight};
@@ -71,7 +71,7 @@ export const Global = () => {
           width: 100%;
           border: none;
           margin: 0;
-          border-top: 1px solid ${theme.colors.slate6};
+          border-top: 1px solid ${theme.colors.gray6};
         }
       `}
     />
