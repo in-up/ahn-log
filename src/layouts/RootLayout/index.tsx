@@ -80,6 +80,7 @@ const StyledMain = styled.main`
   max-width: 72rem;
   padding: 0 2rem;
   @media (max-width: 1024px) {
+    margin: calc(${HEADER_HEIGHT}px) auto 0;
     padding: 0 1rem;
     }
 `

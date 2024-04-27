@@ -13,7 +13,7 @@ const ContactCard: React.FC = () => {
   return (
     <>
       <StyledTitle>
-        <Emoji>💬</Emoji> Contact
+        <i className="ri-contacts-book-2-line"></i> Contacts
       </StyledTitle>
       <StyledWrapper>
         {CONFIG.profile.github && (
@@ -22,8 +22,8 @@ const ContactCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiOutlineGithub className="icon" />
-            <div className="name">github</div>
+            <i className="ri-github-fill"></i>
+            <div className="name">Github</div>
           </a>
         )}
         {CONFIG.profile.instagram && (
@@ -32,8 +32,28 @@ const ContactCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiOutlineInstagram className="icon" />
-            <div className="name">instagram</div>
+            <i className="ri-instagram-fill"></i>
+            <div className="name">Instagram</div>
+          </a>
+        )}
+        {CONFIG.profile.blog && (
+          <a
+            href={`https://${CONFIG.profile.blog}.tistory.com/`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <i className="ri-home-fill"></i>
+            <div className="name">Tistory</div>
+          </a>
+        )}
+        {CONFIG.profile.linkedin && (
+          <a
+            href={`https://www.linkedin.com/in/${CONFIG.profile.linkedin}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <i className="ri-linkedin-box-fill"></i>
+            <div className="name">LinkedIn</div>
           </a>
         )}
         {CONFIG.profile.email && (
@@ -43,18 +63,8 @@ const ContactCard: React.FC = () => {
             target="_blank"
             css={{ overflow: "hidden" }}
           >
-            <AiOutlineMail className="icon" />
+            <i className="ri-mail-fill"></i>
             <div className="name">email</div>
-          </a>
-        )}
-        {CONFIG.profile.linkedin && (
-          <a
-            href={`https://www.linkedin.com/in/${CONFIG.profile.linkedin}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <AiFillLinkedin className="icon" />
-            <div className="name">linkedin</div>
           </a>
         )}
       </StyledWrapper>
@@ -65,9 +75,20 @@ const ContactCard: React.FC = () => {
 export default ContactCard
 
 const StyledTitle = styled.div`
+  display: none;
   padding: 0.25rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.gray9};
+  @media (min-width: 1024px) {
+    display: block;
+  }
+  > i {
+    font-size: 16px;
+    margin-right: 0.25rem;
+  }
 `
+
 const StyledWrapper = styled.div`
   display: flex;
   padding: 0.25rem;
@@ -77,12 +98,18 @@ const StyledWrapper = styled.div`
     theme.scheme === "light" ? "white" : theme.colors.gray4}; */
   a {
     display: flex;
-    padding: 0.75rem;
-    gap: 0.75rem;
+    padding: 0.5rem;
+    margin: 0;
+    gap: 0.1rem;
     align-items: center;
-    border-radius: 1rem;
-    color: ${({ theme }) => theme.colors.gray11};
+    border-radius: 0.5rem;
+    line-height: 1.25rem;
+    color: ${({ theme }) => theme.colors.gray12};
     cursor: pointer;
+    > i {
+    font-size: 16px;
+    margin-right: 0.7rem;
+   }
 
     :hover {
       color: ${({ theme }) => theme.colors.gray12};

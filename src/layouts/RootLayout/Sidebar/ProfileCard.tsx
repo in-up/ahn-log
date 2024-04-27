@@ -8,21 +8,24 @@ type Props = {}
 
 const ProfileCard: React.FC<Props> = () => {
   return (
-    <StyledWrapper>
-      {/* <div className="title">
-       프로필
-      </div> */}
-      <div className="content">
-        <div className="top">
+    <StyledWrapper href="/">
+      <div className="full">
+        <div className="leftside">
           <StyledImageContainer>
-          <Image src={CONFIG.profile.image} width={100} height={100} alt="profile_image" />
+            <Image
+              src={CONFIG.profile.image}
+              width={35}
+              height={35}
+              alt="profile_image"
+              objectFit="cover"
+            />
           </StyledImageContainer>
-        </div>
-        <div className="mid">
           <div className=" name">{CONFIG.profile.name}</div>
-          <div className="role">{CONFIG.profile.role}</div>
-          <div className="text-sm mb-2">{CONFIG.profile.bio}</div>
         </div>
+        <div className="rightside">
+          <div className="role">{CONFIG.profile.role}</div>
+        </div>
+        {/* <div className="text-sm mb-2">{CONFIG.profile.bio}</div> */}
       </div>
     </StyledWrapper>
   )
@@ -30,7 +33,62 @@ const ProfileCard: React.FC<Props> = () => {
 
 export default ProfileCard
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.a`
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+        background-color: ${({ theme }) => theme.colors.gray5};
+      }
+
+  > .full {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .leftside {
+      margin-left: 0.25rem;
+      margin-right: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .name {
+        margin-left: 1rem;
+        font-size: 1rem;
+        line-height: 1.75rem;
+        font-weight: 500;
+        align-items: center;
+      }
+    }
+
+    .rightside {
+      display: flex;
+      flex-direction: row;
+      margin-left: auto;
+      align-items: center;
+      .role {
+        background-color: ${({ theme }) => theme.colors.gray4};
+        padding: 0.15rem 0.6rem;
+        border-radius: 1rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        font-weight: 500;
+        color: ${({ theme }) => theme.colors.gray9};
+      }
+      .bio {
+        margin-bottom: 0.5rem;
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+      }
+    }
+  }
 
   > .title {
     padding: 0.25rem;
@@ -63,33 +121,14 @@ const StyledWrapper = styled.div`
       padding: 0.5rem;
       flex-direction: column;
       align-items: center;
-      .name {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-        font-style: italic;
-        font-weight: 700;
-      }
-      .role {
-        background-color: ${({ theme }) => theme.colors.gray4};
-        padding: 0.15rem 0.6rem;
-        border-radius: 1rem;
-        margin-bottom: 1rem;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-        color: ${({ theme }) => theme.colors.gray11};
-      }
-      .bio {
-        margin-bottom: 0.5rem;
-        font-size: 0.75rem;
-        line-height: 1.25rem;
-      }
+      
     }
   }
 `
 
 const StyledImageContainer = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   overflow: hidden;
 `

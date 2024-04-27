@@ -13,7 +13,7 @@ const ContactCard: React.FC = () => {
   return (
     <>
       <StyledTitle>
-        <Emoji>💬</Emoji> Contact
+        <i className="ri-contacts-line"></i> Contacts
       </StyledTitle>
       <StyledWrapper>
         {CONFIG.profile.github && (
@@ -23,7 +23,7 @@ const ContactCard: React.FC = () => {
             target="_blank"
           >
             <AiOutlineGithub className="icon" />
-            <div className="name">github</div>
+            <div className="name">Github</div>
           </a>
         )}
         {CONFIG.profile.instagram && (
@@ -33,7 +33,7 @@ const ContactCard: React.FC = () => {
             target="_blank"
           >
             <AiOutlineInstagram className="icon" />
-            <div className="name">instagram</div>
+            <div className="name">Instagram</div>
           </a>
         )}
         {CONFIG.profile.email && (
@@ -44,7 +44,7 @@ const ContactCard: React.FC = () => {
             css={{ overflow: "hidden" }}
           >
             <AiOutlineMail className="icon" />
-            <div className="name">email</div>
+            <div className="name">Email</div>
           </a>
         )}
         {CONFIG.profile.linkedin && (
@@ -54,7 +54,7 @@ const ContactCard: React.FC = () => {
             target="_blank"
           >
             <AiFillLinkedin className="icon" />
-            <div className="name">linkedin</div>
+            <div className="name">LinkedIn</div>
           </a>
         )}
       </StyledWrapper>
@@ -65,8 +65,18 @@ const ContactCard: React.FC = () => {
 export default ContactCard
 
 const StyledTitle = styled.div`
+  display: none;
   padding: 0.25rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.gray9};
+  @media (min-width: 1024px) {
+    display: block;
+  }
+  > i {
+    font-size: 16px;
+    margin-right: 0.25rem;
+  }
 `
 const StyledWrapper = styled.div`
   display: flex;
@@ -81,7 +91,7 @@ const StyledWrapper = styled.div`
     gap: 0.75rem;
     align-items: center;
     border-radius: 1rem;
-    color: ${({ theme }) => theme.colors.gray11};
+    color: ${({ theme }) => theme.colors.gray12};
     cursor: pointer;
 
     :hover {

@@ -14,6 +14,7 @@ export default Menu
 
 const StyledWrapper = styled.div`
     font-size: 20px;
+    margin-right: 1rem;
     @media (max-width: 1024px) {
       display: none;
     }

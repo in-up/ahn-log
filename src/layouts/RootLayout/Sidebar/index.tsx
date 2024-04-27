@@ -24,6 +24,7 @@ const Sidebar: React.FC<Props> = () => {
         }}
       >
         <ProfileCard />
+        <FeedHeader />
         <TagList />
         <ServiceCard />
         <ContactCard />
@@ -36,6 +37,7 @@ export default Sidebar
 
 const StyledWrapper = styled.div`
   z-index: ${zIndexes.sidebar};
+
   @media (max-width: 768px) {
     display: block;
     padding: 0.5rem 0;
@@ -43,6 +45,7 @@ const StyledWrapper = styled.div`
 
   > .pin {
     width: 260px;
+    padding: 0 1rem;
     background-color: ${({theme}) => theme.colors.gray2};
     display: none;
     overflow: scroll;

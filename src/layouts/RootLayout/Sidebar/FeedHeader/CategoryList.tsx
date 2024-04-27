@@ -1,4 +1,3 @@
-import useDropdown from "src/hooks/useDropdown"
 import { useRouter } from "next/router"
 import React from "react"
 import { MdExpandMore } from "react-icons/md"
@@ -8,10 +7,9 @@ import { useCategoriesQuery } from "src/hooks/useCategoriesQuery"
 
 type Props = {}
 
-const CategorySelect: React.FC<Props> = () => {
+const Category: React.FC<Props> = () => {
   const router = useRouter()
   const data = useCategoriesQuery()
-  const [dropdownRef, opened, handleOpen] = useDropdown()
 
   const currentCategory = `${router.query.category || ``}` || DEFAULT_CATEGORY
 
@@ -23,31 +21,45 @@ const CategorySelect: React.FC<Props> = () => {
       },
     })
   }
+
   return (
     <StyledWrapper>
-      <div ref={dropdownRef} className="wrapper" onClick={handleOpen}>
-        {currentCategory} Posts <MdExpandMore />
+      <div className="top">
+        <i className="ri-folder-open-line"></i> Category
       </div>
-      {opened && (
-        <div className="content">
-          {Object.keys(data).map((key, idx) => (
-            <div
-              className="item"
-              key={idx}
-              onClick={() => handleOptionClick(key)}
-            >
-              {`${key} (${data[key]})`}
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="content">
+        {Object.keys(data).map((key, idx) => (
+          <div
+            className={`item${key === currentCategory ? " active" : ""}`}
+            key={idx}
+            onClick={() => handleOptionClick(key)}
+          >
+            {`${key} (${data[key]})`}
+          </div>
+        ))}
+      </div>
     </StyledWrapper>
   )
 }
 
-export default CategorySelect
+export default Category
 
 const StyledWrapper = styled.div`
+width: 100%;
+  .top {
+    display: none;
+    padding: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.gray9};
+    @media (min-width: 1024px) {
+      display: block;
+    }
+    > i {
+    font-size: 16px;
+    margin-right: 0.25rem;
+  }
+  }
   position: relative;
   > .wrapper {
     display: flex;
@@ -61,25 +73,24 @@ const StyledWrapper = styled.div`
     cursor: pointer;
   }
   > .content {
-    position: absolute;
-    z-index: 40;
-    padding: 0.25rem;
-    border-radius: 0.75rem;
-    background-color: ${({ theme }) => theme.colors.gray2};
-    color: ${({ theme }) => theme.colors.gray10};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    > .item {
-      padding: 0.25rem;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      border-radius: 0.75rem;
+    margin-top: 0.25rem;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.1rem;
+    .item {
+      padding: 0.5rem;
+      margin: 0;
+      border-radius: 0.5rem;
       font-size: 0.875rem;
       line-height: 1.25rem;
       white-space: nowrap;
       cursor: pointer;
-
-      :hover {
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.gray4};
+      }
+      &.active {
         background-color: ${({ theme }) => theme.colors.gray4};
       }
     }

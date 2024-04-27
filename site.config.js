@@ -4,17 +4,18 @@ const CONFIG = {
     name: "ahnlog",
     image: "/avatar.png", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     logo: "/logo.webp",
-    role: "@ in-up",
+    role: "CS Student",
     bio: "플러터로 뚝딱뚝딱",
     email: "ahn--log@gmail.com",
-    linkedin: "irr",
+    linkedin: "",
     github: "in-up",
     instagram: "",
+    blog: "inup",
   },
   projects: [
     {
-      name: `영화달`,
-      href: "https://github.com/in-up/moonflix-frontend",
+      name: `Ahn-log`,
+      href: "https://github.com/in-up/ahn-log",
     },
   ],
   // blog setting (required)
