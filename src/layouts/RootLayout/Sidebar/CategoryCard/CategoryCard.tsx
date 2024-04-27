@@ -6,7 +6,7 @@ import styled from "@emotion/styled"
 
 type Props = {}
 
-const FeedHeader: React.FC<Props> = () => {
+const CategoryCard: React.FC<Props> = () => {
   return (
     <StyledWrapper>
       <CategoryList />
@@ -15,12 +15,12 @@ const FeedHeader: React.FC<Props> = () => {
   )
 }
 
-export default FeedHeader
+export default CategoryCard
 
 const StyledWrapper = styled.div`
   display: flex;
   width: 100%;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
   justify-content: space-between;
   align-items: center;
 `

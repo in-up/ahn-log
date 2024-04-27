@@ -55,7 +55,7 @@ const TagList: React.FC<Props> = () => {
 export default TagList
 
 const StyledWrapper = styled.div`
-  margin-bottom: 2rem;
+  margin: 1rem 0;
 
   .top {
     display: none;

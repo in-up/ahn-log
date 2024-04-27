@@ -17,6 +17,11 @@ type Props = {}
 
 const Feed: React.FC<Props> = () => {
   const [q, setQ] = useState("")
+  
+  /* 검색 기능 수정 필요
+  Header에 있는 SearchInput을 Feed 내로 올기고 (Sidebar 또는 Header 자체를 Feed로 옮기는 방법도 있음)
+  쿼리를 PostList의 파라미터와 이어야 함
+  */
 
   return (
     <StyledWrapper>

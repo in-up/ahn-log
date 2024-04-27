@@ -20,7 +20,7 @@ const ProfileCard: React.FC<Props> = () => {
               objectFit="cover"
             />
           </StyledImageContainer>
-          <div className=" name">{CONFIG.profile.name}</div>
+          <div className="name">{CONFIG.profile.name}</div>
         </div>
         <div className="rightside">
           <div className="role">{CONFIG.profile.role}</div>
@@ -36,7 +36,7 @@ export default ProfileCard
 const StyledWrapper = styled.a`
   margin-top: 0.5rem;
   padding-top: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   display: inline-block;
   width: 100%;
@@ -44,7 +44,7 @@ const StyledWrapper = styled.a`
   transition: background-color 0.3s ease;
 
   &:hover {
-        background-color: ${({ theme }) => theme.colors.gray5};
+        background-color: ${({ theme }) => theme.colors.gray4};
       }
 
   > .full {
@@ -63,7 +63,7 @@ const StyledWrapper = styled.a`
         margin-left: 1rem;
         font-size: 1rem;
         line-height: 1.75rem;
-        font-weight: 500;
+        font-weight: 700;
         align-items: center;
       }
     }

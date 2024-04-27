@@ -2,15 +2,26 @@ import React, { InputHTMLAttributes, ReactNode, useState } from "react";
 import styled from "@emotion/styled";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  onToggleVisibility: () => void; // 부모 컴포넌트로부터 받을 함수
+  onToggleVisibility?: () => void;
+  q: string; // q 속성 추가
+  onQueryChange?: (value: string) => void; // onQueryChange 후크 추가
 }
 
-const SearchInput: React.FC<Props> = ({ onToggleVisibility, ...props }) => {
+const SearchInput: React.FC<Props> = ({ onToggleVisibility, q, onQueryChange, ...props }) => {
   const [visible, setVisible] = useState(false);
 
   const toggleVisibility = () => {
     setVisible((prevVisible) => !prevVisible);
-    onToggleVisibility(); // visible 상태 변경 시 부모 컴포넌트의 함수 호출
+    if (onToggleVisibility) {
+      onToggleVisibility();
+    }
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    if (onQueryChange) {
+      onQueryChange(value); // 입력 값이 변경될 때 콜백 호출
+    }
   };
 
   return (
@@ -19,6 +30,8 @@ const SearchInput: React.FC<Props> = ({ onToggleVisibility, ...props }) => {
         className={`mid ${visible ? "visible" : ""}`}
         type="text"
         placeholder="제목, 태그, 시리즈 검색"
+        value={q} // q 속성을 input 값에 바인딩
+        onChange={handleInputChange} // 입력 값 변경 시 핸들러 호출
         {...props}
       />
       <button className="searchButton" onClick={toggleVisibility}>
@@ -31,6 +44,10 @@ const SearchInput: React.FC<Props> = ({ onToggleVisibility, ...props }) => {
 export default SearchInput;
 
 const StyledWrapper = styled.div`
+  display: block;
+  @media (max-width: 1024px) {
+    display: none;
+  }
   margin-left: 3rem;
   position: relative;
 
@@ -52,5 +69,11 @@ const StyledWrapper = styled.div`
     border: none;
     cursor: pointer;
     font-size: 20px;
+    transition: background-color 0.1s ease;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.55rem;
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.gray4};
+    }
   }
 `;

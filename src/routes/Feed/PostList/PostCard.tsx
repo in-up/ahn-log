@@ -25,8 +25,8 @@ const PostCard: React.FC<Props> = ({ data }) => {
               alt={data.title}
               css={{
                 objectFit: "cover",
-                maxWidth: "100%", // 이미지의 최대 너비를 부모 요소에 맞게 설정
-                height: "auto", // 높이를 자동으로 조정하여 비율 유지
+                maxWidth: "100%",
+                height: "auto",
               }}
             />
           )}
@@ -37,9 +37,9 @@ const PostCard: React.FC<Props> = ({ data }) => {
               alt={data.title}
               css={{
                 objectFit: "cover",
-                maxWidth: "100%", // 이미지의 최대 너비를 부모 요소에 맞게 설정
-                height: "auto", // 높이를 자동으로 조정하여 비율 유지
-                filter: "blur(8px)",
+                maxWidth: "100%",
+                height: "auto",
+                filter: "blur(10px)",
               }}
             />
           )}

@@ -23,7 +23,14 @@ const CONFIG = {
     title: "안로그",
     description: "ahnlog",
   },
-
+  menu: {
+    about: "/about",
+    resume: "/resume",
+  },
+  button: {
+    name:"Github",
+    href:"https://github.com/in-up/"
+  },
   // CONFIG configration (required)
   link: "https://ahn.vercel.app",
   since: 2024, // If leave this empty, current year will be used.

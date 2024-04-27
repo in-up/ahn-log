@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { FeedHeader } from "./FeedHeader"
+import { CategoryCard } from "./CategoryCard"
 import Footer from "./Footer"
 import styled from "@emotion/styled"
 import TagList from "./TagList"
@@ -8,6 +8,7 @@ import ProfileCard from "./ProfileCard"
 import ServiceCard from "./ServiceCard"
 import ContactCard from "./ContactCard"
 import { zIndexes } from "src/styles/zIndexes"
+import ButtonCard from "./ButtonCard"
 const HEADER_HEIGHT = 0
 
 type Props = {}
@@ -24,7 +25,8 @@ const Sidebar: React.FC<Props> = () => {
         }}
       >
         <ProfileCard />
-        <FeedHeader />
+        <ButtonCard/>
+        <CategoryCard />
         <TagList />
         <ServiceCard />
         <ContactCard />

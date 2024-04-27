@@ -31,7 +31,7 @@ export const colors = {
     ...whiteA,
     ...blackA,
     bg: "#ffffff",
-    elem: '#ffffff'
+    lm: "#ededed",
   },
   dark: {
     ...indigoDark,
@@ -43,7 +43,7 @@ export const colors = {
     ...greenDark,
     ...whiteA,
     ...blackA,
-    bg: "#212121",
-    elem: "#1a1a1f"
+    bg: "#1a1a1f",
+    lm: "#1a1a1f",
   },
 }
