@@ -9,7 +9,7 @@ const ServiceCard: React.FC = () => {
   return (
     <>
       <StyledTitle>
-      <i className="ri-git-repository-fill"></i> Service
+      <i className="ri-instance-line"></i> Service
       </StyledTitle>
       <StyledWrapper>
         {CONFIG.projects.map((project, idx) => (
@@ -19,7 +19,7 @@ const ServiceCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiFillCodeSandboxCircle className="icon" />
+            <i className="ri-window-fill"></i>
             <div className="name">{project.name}</div>
           </a>
         ))}
@@ -31,26 +31,42 @@ const ServiceCard: React.FC = () => {
 export default ServiceCard
 
 const StyledTitle = styled.div`
+  display: none;
   padding: 0.25rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.gray9};
+  @media (min-width: 1024px) {
+    display: block;
+  }
+  > i {
+    font-size: 16px;
+    margin-right: 0.25rem;
+  }
 `
 
 const StyledWrapper = styled.div`
   display: flex;
   padding: 0.25rem;
-  margin-bottom: 2.25rem;
+  margin: 0 0 1rem 0;
   flex-direction: column;
   border-radius: 1rem;
-  background-color: ${({ theme }) =>
-    theme.scheme === "light" ? "white" : theme.colors.gray4};
+  /* background-color: ${({ theme }) =>
+    theme.scheme === "light" ? "white" : theme.colors.gray4}; */
   > a {
     display: flex;
-    padding: 0.75rem;
-    gap: 0.75rem;
+    padding: 0.5rem;
+    margin: 0;
+    gap: 0.1rem;
     align-items: center;
-    border-radius: 1rem;
-    color: ${({ theme }) => theme.colors.gray11};
+    border-radius: 0.5rem;
+    line-height: 1.25rem;
+    color: ${({ theme }) => theme.colors.gray12};
     cursor: pointer;
+    > i {
+    font-size: 16px;
+    margin-right: 0.7rem;
+   }
 
     :hover {
       color: ${({ theme }) => theme.colors.gray12};

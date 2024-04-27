@@ -35,7 +35,7 @@ const TagList: React.FC<Props> = () => {
   return (
     <StyledWrapper>
       <div className="top">
-      <i className="ri-chat-thread-line"></i> Tags
+      <i className="ri-price-tag-3-line"></i> Tags
       </div>
       <div className="list">
         {Object.keys(data).map((key) => (
@@ -44,7 +44,7 @@ const TagList: React.FC<Props> = () => {
             data-active={key === currentTag}
             onClick={() => handleClickTag(key)}
           >
-            {key}
+          {key}
           </a>
         ))}
       </div>
@@ -55,20 +55,27 @@ const TagList: React.FC<Props> = () => {
 export default TagList
 
 const StyledWrapper = styled.div`
+  margin: 1rem 0;
+
   .top {
     display: none;
     padding: 0.25rem;
-    margin-bottom: 0.75rem;
-
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.gray9};
     @media (min-width: 1024px) {
       display: block;
     }
+    > i {
+    font-size: 16px;
+    margin-right: 0.25rem;
+  }
   }
 
   .list {
     display: flex;
     margin-bottom: 1.5rem;
-    gap: 0.25rem;
+    gap: 0.1rem;
     overflow: scroll;
 
     scrollbar-width: none;
@@ -84,15 +91,12 @@ const StyledWrapper = styled.div`
 
     a {
       display: block;
-      padding: 0.25rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      margin-top: 0.25rem;
-      margin-bottom: 0.25rem;
-      border-radius: 0.75rem;
+      padding: 0.5rem;
+      margin: 0;
+      border-radius: 0.5rem;
       font-size: 0.875rem;
       line-height: 1.25rem;
-      color: ${({ theme }) => theme.colors.gray10};
+      color: ${({ theme }) => theme.colors.gray12};
       flex-shrink: 0;
       cursor: pointer;
 

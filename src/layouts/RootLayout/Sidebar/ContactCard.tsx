@@ -13,7 +13,7 @@ const ContactCard: React.FC = () => {
   return (
     <>
       <StyledTitle>
-        <i className="ri-contacts-line"></i> Contacts
+        <i className="ri-contacts-book-2-line"></i> Contacts
       </StyledTitle>
       <StyledWrapper>
         {CONFIG.profile.github && (
@@ -22,7 +22,7 @@ const ContactCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiOutlineGithub className="icon" />
+            <i className="ri-github-fill"></i>
             <div className="name">Github</div>
           </a>
         )}
@@ -32,8 +32,28 @@ const ContactCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiOutlineInstagram className="icon" />
+            <i className="ri-instagram-fill"></i>
             <div className="name">Instagram</div>
+          </a>
+        )}
+        {CONFIG.profile.blog && (
+          <a
+            href={`https://${CONFIG.profile.blog}.tistory.com/`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <i className="ri-home-fill"></i>
+            <div className="name">Tistory</div>
+          </a>
+        )}
+        {CONFIG.profile.linkedin && (
+          <a
+            href={`https://www.linkedin.com/in/${CONFIG.profile.linkedin}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <i className="ri-linkedin-box-fill"></i>
+            <div className="name">LinkedIn</div>
           </a>
         )}
         {CONFIG.profile.email && (
@@ -43,18 +63,8 @@ const ContactCard: React.FC = () => {
             target="_blank"
             css={{ overflow: "hidden" }}
           >
-            <AiOutlineMail className="icon" />
-            <div className="name">Email</div>
-          </a>
-        )}
-        {CONFIG.profile.linkedin && (
-          <a
-            href={`https://www.linkedin.com/in/${CONFIG.profile.linkedin}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <AiFillLinkedin className="icon" />
-            <div className="name">LinkedIn</div>
+            <i className="ri-mail-fill"></i>
+            <div className="name">email</div>
           </a>
         )}
       </StyledWrapper>
@@ -78,21 +88,28 @@ const StyledTitle = styled.div`
     margin-right: 0.25rem;
   }
 `
+
 const StyledWrapper = styled.div`
   display: flex;
   padding: 0.25rem;
   flex-direction: column;
   border-radius: 1rem;
-  background-color: ${({ theme }) =>
-    theme.scheme === "light" ? "white" : theme.colors.gray4};
+  /* background-color: ${({ theme }) =>
+    theme.scheme === "light" ? "white" : theme.colors.gray4}; */
   a {
     display: flex;
-    padding: 0.75rem;
-    gap: 0.75rem;
+    padding: 0.5rem;
+    margin: 0;
+    gap: 0.1rem;
     align-items: center;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
+    line-height: 1.25rem;
     color: ${({ theme }) => theme.colors.gray12};
     cursor: pointer;
+    > i {
+    font-size: 16px;
+    margin-right: 0.7rem;
+   }
 
     :hover {
       color: ${({ theme }) => theme.colors.gray12};

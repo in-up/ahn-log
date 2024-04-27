@@ -10,7 +10,7 @@ const ProfileCard: React.FC<Props> = () => {
   return (
     <StyledWrapper>
       <div className="title">
-        <Emoji>💻</Emoji> Profile
+       프로필
       </div>
       <div className="content">
         <div className="top">
@@ -38,7 +38,7 @@ const StyledWrapper = styled.div`
     border-radius: 1rem;
     width: 100%;
     background-color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : theme.colors.slate4};
+      theme.scheme === "light" ? "white" : theme.colors.gray4};
     @media (min-width: 768px) {
       padding: 1rem;
     }
@@ -69,7 +69,7 @@ const StyledWrapper = styled.div`
         margin-bottom: 1rem;
         font-size: 0.875rem;
         line-height: 1.25rem;
-        color: ${({ theme }) => theme.colors.slate11};
+        color: ${({ theme }) => theme.colors.gray11};
       }
       .bio {
         margin-bottom: 0.5rem;

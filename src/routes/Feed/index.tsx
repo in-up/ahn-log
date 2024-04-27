@@ -17,30 +17,35 @@ type Props = {}
 
 const Feed: React.FC<Props> = () => {
   const [q, setQ] = useState("")
+  
+  /* 검색 기능 수정 필요
+  Header에 있는 SearchInput을 Feed 내로 올기고 (Sidebar 또는 Header 자체를 Feed로 옮기는 방법도 있음)
+  쿼리를 PostList의 파라미터와 이어야 함
+  */
 
   return (
     <StyledWrapper>
-      <div
+      {/* <div
         className="lt"
         css={{
           height: `calc(100vh - ${HEADER_HEIGHT}px)`,
         }}
       >
         <TagList />
-      </div>
+      </div> */}
       <div className="mid">
         <MobileProfileCard />
-        <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
         <div className="tags">
+          <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
           <TagList />
         </div>
-        <FeedHeader />
+        {/* <FeedHeader /> */}
         <PostList q={q} />
         <div className="footer">
           <Footer />
         </div>
       </div>
-      <div
+      {/* <div
         className="rt"
         css={{
           height: `calc(100vh - ${HEADER_HEIGHT}px)`,
@@ -52,7 +57,7 @@ const Feed: React.FC<Props> = () => {
         <div className="footer">
           <Footer />
         </div>
-      </div>
+      </div> */}
     </StyledWrapper>
   )
 }
@@ -60,7 +65,6 @@ const Feed: React.FC<Props> = () => {
 export default Feed
 
 const StyledWrapper = styled.div`
-  grid-template-columns: repeat(12, minmax(0, 1fr));
 
   padding: 2rem 0;
   display: grid;

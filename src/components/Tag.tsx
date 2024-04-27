@@ -30,7 +30,7 @@ const StyledWrapper = styled.div`
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.slate10};
-  background-color: ${({ theme }) => theme.colors.slate5};
+  color: ${({ theme }) => theme.colors.gray12};
+  background-color: ${({ theme }) => theme.colors.gray2};
   cursor: pointer;
 `

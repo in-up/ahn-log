@@ -6,6 +6,9 @@ class MyDocument extends Document {
     return (
       <Html lang={CONFIG.lang}>
         <Head>
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="apple-touch-icon"

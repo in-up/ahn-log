@@ -17,25 +17,43 @@ const PostCard: React.FC<Props> = ({ data }) => {
   return (
     <StyledWrapper href={`/${data.slug}`}>
       <article>
-        {category && (
-          <div className="category">
-            <Category>{category}</Category>
-          </div>
-        )}
-        {data.thumbnail && (
-          <div className="thumbnail">
+        <div className={`thumbnail ${data.thumbnail ? "" : "no-thumbnail"}`}>
+          {data.thumbnail && (
             <Image
               src={data.thumbnail}
               fill
               alt={data.title}
-              css={{ objectFit: "cover" }}
+              css={{
+                objectFit: "cover",
+                maxWidth: "100%",
+                height: "auto",
+              }}
             />
-          </div>
-        )}
-        <div data-thumb={!!data.thumbnail} data-category={!!category} className="content">
+          )}
+          {!data.thumbnail && (
+            <Image
+              src="/avatar.png"
+              fill
+              alt={data.title}
+              css={{
+                objectFit: "cover",
+                maxWidth: "100%",
+                height: "auto",
+                filter: "blur(10px)",
+              }}
+            />
+          )}
+        </div>
+        <div className="content">
           <header className="top">
+            <div className="category">
+              {category && <Category>{category}</Category>}
+            </div>
             <h2>{data.title}</h2>
           </header>
+          <div className="summary">
+            <p>{data.summary}</p>
+          </div>
           <div className="date">
             <div className="content">
               {formatDate(
@@ -43,9 +61,6 @@ const PostCard: React.FC<Props> = ({ data }) => {
                 CONFIG.lang
               )}
             </div>
-          </div>
-          <div className="summary">
-            <p>{data.summary}</p>
           </div>
           <div className="tags">
             {data.tags &&
@@ -63,84 +78,70 @@ export default PostCard
 
 const StyledWrapper = styled(Link)`
   article {
+    display: flex;
     overflow: hidden;
     position: relative;
-    margin-bottom: 1.5rem;
-    border-radius: 1rem;
-    background-color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : theme.colors.slate4};
-    transition-property: box-shadow;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    padding: 1.5rem 0;
+    /* background-color: ${({ theme }) =>
+      theme.scheme === "light" ? "white" : theme.colors.gray4}; */
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gray2};
 
-    @media (min-width: 768px) {
-      margin-bottom: 2rem;
+    @media (max-width: 1024px) {
+      flex-direction: column; /* 모바일 화면에서 상하로 배치 */
     }
-
-    :hover {
+    /* transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms; */
+    /* :hover {
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-    > .category {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      z-index: 10;
-    }
-
+    } */
     > .thumbnail {
       position: relative;
-      width: 100%;
-      background-color: ${({ theme }) => theme.colors.slate2};
-      padding-bottom: 66%;
-
-      @media (min-width: 1024px) {
-        padding-bottom: 50%;
+      width: 328px;
+      height: 220px;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: ${({ theme }) => theme.colors.gray2};
+      @media (max-width: 1024px) {
+        width: 100%;
+        height: 25vh;
+      }
+    }
+    > .no-thumbnail {
+      @media (max-width: 1024px) {
+        width: 100%;
+        height: 0vh;
       }
     }
     > .content {
-      padding: 1rem;
+      flex-grow: 1;
+      padding: 0.25rem 2rem;
+      @media (max-width: 1024px) {
+        padding: 1rem 0.25rem;
+      }
 
-      &[data-thumb="false"] {
-        padding-top: 3.5rem;
-      }
-      &[data-category="false"] {
-        padding-top: 1.5rem;
-      }
       > .top {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        gap: 1rem;
 
-        @media (min-width: 768px) {
-          flex-direction: row;
-          align-items: baseline;
+        .category {
+          align-self: flex-start;
         }
+
         h2 {
           margin-bottom: 0.5rem;
-          font-size: 1.125rem;
+          font-size: 1.4rem;
           line-height: 1.75rem;
-          font-weight: 500;
-
+          font-weight: 700;
           cursor: pointer;
 
           @media (min-width: 768px) {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             line-height: 1.75rem;
-          }
-        }
-      }
-      > .date {
-        display: flex;
-        margin-bottom: 1rem;
-        gap: 0.5rem;
-        align-items: center;
-        .content {
-          font-size: 0.875rem;
-          line-height: 1.25rem;
-          color: ${({ theme }) => theme.colors.slate10};
-          @media (min-width: 768px) {
-            margin-left: 0;
           }
         }
       }
@@ -148,17 +149,24 @@ const StyledWrapper = styled(Link)`
         margin-bottom: 1rem;
         p {
           display: none;
-          line-height: 2rem;
-          color: ${({ theme }) => theme.colors.slate11};
+          line-height: 1rem;
+          color: ${({ theme }) => theme.colors.gray11};
 
           @media (min-width: 768px) {
             display: block;
           }
         }
       }
+      > .date {
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: ${({ theme }) => theme.colors.gray10};
+      }
       > .tags {
         display: flex;
         gap: 0.5rem;
+        flex-wrap: wrap;
       }
     }
   }
